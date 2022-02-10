@@ -7,30 +7,24 @@
 
 	%%TLS%%
 
-	root * /var/www/openchia
-
 	encode zstd gzip
 
 	@drf {
 		path /api/*
 		path /ws/*
-		path /static/*
 	}
 
 	reverse_proxy @drf %%API_HOSTNAME%%:8000
 
+	reverse_proxy /static/* %%API_HOSTNAME%%:8001
+
 	@spa {
-		not path */assets/*
-		not path *.js
-		not path *.css
 		not path /api/*
 		not path /ws/*
-		path_regexp i18n ^/(.*?)/(.*)
+		not path /static/*
 	}
 
-	rewrite @spa {re.i18n.1}/index.html
-
-	file_server
+	reverse_proxy @spa %%WEB_HOSTNAME%%:80
 
 }
 

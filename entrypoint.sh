@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -x
 
 if [ -z "${CERTBOT_EMAIL}" ]; then
@@ -18,5 +18,6 @@ sed -i s,%%POOL_DOMAIN%%,${POOL_DOMAIN:=pool},g /etc/Caddyfile
 sed -i s,%%REDIRECT_DOMAIN%%,${REDIRECT_DOMAIN:=www},g /etc/Caddyfile
 sed -i s,%%API_HOSTNAME%%,${API_HOSTNAME:=api},g /etc/Caddyfile
 sed -i s,%%POOL_HOSTNAME%%,${POOL_HOSTNAME:=pool},g /etc/Caddyfile
+sed -i s,%%WEB_HOSTNAME%%,${WEB_HOSTNAME:=web},g /etc/Caddyfile
 
 exec caddy run --config /etc/Caddyfile

@@ -8,7 +8,7 @@ EXPOSE 443
 
 RUN rm -rf /tmp/build
 
-COPY ./caddy/Caddyfile /etc/
-COPY ./docker/entrypoint.sh /root/
+COPY ./Caddyfile /etc/
+COPY ./entrypoint.sh /root/
 
-CMD ["bash", "/root/entrypoint.sh"]
+CMD ["sh", "/root/entrypoint.sh"]
