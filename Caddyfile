@@ -43,3 +43,13 @@
 	reverse_proxy %%POOL_HOSTNAME%%:8088
 
 }
+
+
+%%POOL2_DOMAIN%% {
+
+	%%TLS%%
+
+	reverse_proxy %%POOL_HOSTNAME%%:8088
+
+}
+%%POOL2_DOMAIN_END%%
