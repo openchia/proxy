@@ -25,7 +25,7 @@ if [ -n ${POOL2_DOMAIN} ]; then
 	sed -i s,%%POOL2_DOMAIN%%,${POOL2_DOMAIN},g /etc/Caddyfile
 	sed -i s,%%POOL2_DOMAIN_END%%,,g /etc/Caddyfile
 else
-	sed -i s,%%POOL2_DOMAIN%%.*%%POOL2_DOMAIN_END%%,,g /etc/Caddyfile
+	sed -z -i s,%%POOL2_DOMAIN%%.*%%POOL2_DOMAIN_END%%,,g /etc/Caddyfile
 fi
 
 exec caddy run --config /etc/Caddyfile
