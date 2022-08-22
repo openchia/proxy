@@ -14,7 +14,9 @@
 		path /ws/*
 	}
 
-	reverse_proxy @drf %%API_HOSTNAME%%:8000
+	reverse_proxy @drf %%API_HOSTNAME%%:8000 {
+		trusted_proxies private_ranges
+	}
 
 	reverse_proxy /static/* %%API_HOSTNAME%%:8001
 
@@ -40,7 +42,9 @@
 
 	%%TLS%%
 
-	reverse_proxy %%POOL_HOSTNAME%%:8088
+	reverse_proxy %%POOL_HOSTNAME%%:8088 {
+		trusted_proxies private_ranges
+	}
 
 }
 
@@ -49,7 +53,9 @@
 
 	%%TLS%%
 
-	reverse_proxy %%POOL_HOSTNAME%%:8088
+	reverse_proxy %%POOL_HOSTNAME%%:8088 {
+		trusted_proxies private_ranges
+	}
 
 }
 %%POOL2_DOMAIN_END%%
