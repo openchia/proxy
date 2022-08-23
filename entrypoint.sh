@@ -19,6 +19,7 @@ sed -i s,%%REDIRECT_DOMAIN%%,${REDIRECT_DOMAIN:=www},g /etc/Caddyfile
 sed -i s,%%API_HOSTNAME%%,${API_HOSTNAME:=api},g /etc/Caddyfile
 sed -i s,%%POOL_HOSTNAME%%,${POOL_HOSTNAME:=pool},g /etc/Caddyfile
 sed -i s,%%WEB_HOSTNAME%%,${WEB_HOSTNAME:=web},g /etc/Caddyfile
+sed -i s,%%TRUSTED_PROXIES%%,${TRUSTED_PROXIES},g /etc/Caddyfile
 
 # Allow a second pool domain e.g. pool-eu
 if [ -n "${POOL2_DOMAIN}" ]; then
