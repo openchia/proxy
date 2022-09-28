@@ -1,4 +1,4 @@
-FROM caddy:2.5.2-alpine
+FROM caddy:2.6.1-alpine
 
 # Identify the maintainer of an image
 LABEL maintainer="contact@openchia.io"
