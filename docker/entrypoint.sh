@@ -21,7 +21,7 @@ if [ ! -e "/etc/Caddyfile" ]; then
 	sed -i s,%%POOL_HOSTNAME%%,${POOL_HOSTNAME:=pool},g /etc/Caddyfile.tpl
 	sed -i s,%%WEB_HOSTNAME%%,${WEB_HOSTNAME:=web},g /etc/Caddyfile.tpl
 	sed -i s,%%TRUSTED_PROXIES%%,${TRUSTED_PROXIES},g /etc/Caddyfile.tpl
-	sed -i s,%%LOGFORMAT,${LOGFORMAT:=json},g /etc/Caddyfile.tpl
+	sed -i s,%%LOGFORMAT%%,${LOGFORMAT:=json},g /etc/Caddyfile.tpl
 	sed -i s,%%LOGLEVEL%%,${LOGLEVEL:=INFO},g /etc/Caddyfile.tpl
 
 	# Allow a second pool domain
