@@ -1,4 +1,4 @@
-FROM caddy:2.6.2-alpine
+FROM caddy:2.7.4-alpine
 
 # Identify the maintainer of an image
 LABEL maintainer="contact@openchia.io"
@@ -8,7 +8,7 @@ EXPOSE 443
 
 RUN rm -rf /tmp/build
 
-COPY ./Caddyfile /etc/
-COPY ./entrypoint.sh /root/
+COPY ./docker/caddy/Caddyfile /etc/Caddyfile.tpl
+COPY ./docker/entrypoint.sh /
 
-CMD ["sh", "/root/entrypoint.sh"]
+CMD ["sh", "/entrypoint.sh"]

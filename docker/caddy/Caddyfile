@@ -26,6 +26,12 @@
 
 	reverse_proxy @spa %%WEB_HOSTNAME%%:80
 
+	log {
+		output stdout
+		format %%LOGFORMAT%%
+		level %%LOGLEVEL%%
+	}
+
 }
 
 %%REDIRECT_DOMAIN%% {
@@ -33,6 +39,12 @@
 	%%TLS%%
 
 	redir https://%%WWW_DOMAIN%%{uri}
+
+	log {
+		output stdout
+		format %%LOGFORMAT%%
+		level %%LOGLEVEL%%
+	}
 
 }
 
@@ -44,6 +56,12 @@
 		trusted_proxies private_ranges %%TRUSTED_PROXIES%%
 	}
 
+	log {
+		output stdout
+		format %%LOGFORMAT%%
+		level %%LOGLEVEL%%
+	}
+
 }
 
 
@@ -53,6 +71,12 @@
 
 	reverse_proxy %%POOL_HOSTNAME%%:8088 {
 		trusted_proxies private_ranges
+	}
+
+	log {
+		output stdout
+		format %%LOGFORMAT%%
+		level %%LOGLEVEL%%
 	}
 
 }
